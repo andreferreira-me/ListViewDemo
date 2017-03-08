@@ -12,7 +12,13 @@ namespace ListViewDemo
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
-            // SetContentView (Resource.Layout.Main);
+            SetContentView (Resource.Layout.Main);
+            EmployeeList employeeList = new EmployeeList();
+            var employees = employeeList.GetEmployees(20);
+
+            ListView lvEmployees = FindViewById<ListView>(Resource.Id.lvEmployees);
+            EmployeeAdapter adapter = new EmployeeAdapter(employees);
+            lvEmployees.Adapter = adapter;
         }
     }
 }
